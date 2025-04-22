@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Sistema de Cadastro Esgrima!</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .navbar {
+        background-color: #007bff !important;
+      }
+      .navbar-brand {
+        color: white !important;
+        font-weight: bold;
+      }
+      .form-container {
+        margin-top: 50px;
+        padding: 30px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+      .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Cadastro Esgrima</a>
+        </div>
+    </nav>
+      
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+      <div class="form-container col-md-6">
+        <h1 class="text-center mb-4">Cadastro de Usuários</h1>
+        <form action="{% url 'listagem_usuarios' %}" method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input name="nome" id="nome" class="form-control" type="text" placeholder="Digite seu nome" autocomplete="off">
+          </div>
+          <div class="mb-3">
+            <label for="idade" class="form-label">Idade</label>
+            <input name="idade" id="idade" class="form-control" type="text" placeholder="Digite sua idade" autocomplete="off">
+          </div>
+          <div class="mb-3">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input name="telefone" id="telefone" class="form-control" type="text" placeholder="Digite seu telefone" autocomplete="off">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input name="user_email" id="user_email" class="form-control" type="email" placeholder="Digite seu e-mail" autocomplete="off">
+          </div>
+          <div class="mb-3">
+            <label for="senha" class="form-label">Senha</label>
+            <input name="user_password" id="user_password" class="form-control" type="password" placeholder="Digite sua senha" autocomplete="off">
+          </div>
+          <div class="text-center">
+            <button class="btn btn-primary btn-lg w-100">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
