@@ -18,9 +18,9 @@ def cadastro_usuario(request):
 
         # Cria o novo usuário
         novo_usuario = Usuario.objects.create_user(email=email, nome=nome, senha=senha)
-        return render(request, 'usuarios/sucesso.html', {'nome': nome})
+        return redirect('login_usuario')  # Nome da rota para a tela de login
 
-    return render(request, 'usuarios/login.html')
+    return render(request, 'usuarios/cadastro.html')
 
 def login_usuario(request):
     return render(request, 'usuarios/login_existente.html')
@@ -76,3 +76,9 @@ def upload_video(request):
         uploaded_file_url = fs.url(filename)
         return render(request, 'usuarios/upload_success.html', {'uploaded_file_url': uploaded_file_url})
     return redirect('listagem_usuarios')
+
+def dashboard(request):
+    # Dados para o gráfico
+    vendas = [12, 19, 3, 5, 2]
+    cores = [300, 50, 100]
+    return render(request, 'usuarios/dashboard.html', {'vendas': vendas, 'cores': cores})

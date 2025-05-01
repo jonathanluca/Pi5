@@ -10,9 +10,9 @@ urlpatterns = [
     path('autenticar/', views.autenticar_usuario, name='autenticar_usuario'),
     path('usuarios/', views.listagem_usuarios, name='listagem_usuarios'),
     path('upload-video/', views.upload_video, name='upload_video'),
+    path('dashboard/', views.dashboard, name='dashboard'),
 ]
 
 # Adicione esta linha para servir arquivos de mídia
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
