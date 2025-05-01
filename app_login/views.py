@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.core.files.storage import FileSystemStorage
+from django.conf import settings
 from .models import Usuario
 
 def cadastro_usuario(request):
@@ -65,3 +67,12 @@ def usuarios(request):
 def listagem_usuarios(request):
     usuarios = Usuario.objects.all()  # Obtém todos os usuários cadastrados
     return render(request, 'usuarios/usuarios.html', {'usuarios': usuarios})
+
+def upload_video(request):
+    if request.method == 'POST' and request.FILES.get('video'):
+        video = request.FILES['video']
+        fs = FileSystemStorage(location=settings.MEDIA_ROOT)  # Salva no diretório de mídia
+        filename = fs.save(video.name, video)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'usuarios/upload_success.html', {'uploaded_file_url': uploaded_file_url})
+    return redirect('listagem_usuarios')

@@ -1,4 +1,4 @@
-#!/home/jonathan-lucas/Documentos/sexto-semestre/projeto-integrador/tela_login/venv/bin/python3
+#!/home/jonathan-lucas/Documentos/sexto-semestre/projeto-integrador/tela_login/Pi5/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

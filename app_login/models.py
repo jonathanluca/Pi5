@@ -40,3 +40,38 @@ class Usuario(AbstractBaseUser):
 
     def __str__(self):
         return self.nome
+
+class Jogador(models.Model):
+    esq_ombro_x = models.FloatField(null=True, blank=True)
+    esq_ombro_y = models.FloatField(null=True, blank=True)
+    dir_ombro_x = models.FloatField(null=True, blank=True)
+    dir_ombro_y = models.FloatField(null=True, blank=True)
+    esq_cotovelo_x = models.FloatField(null=True, blank=True)
+    esq_cotovelo_y = models.FloatField(null=True, blank=True)
+    dir_cotovelo_x = models.FloatField(null=True, blank=True)
+    dir_cotovelo_y = models.FloatField(null=True, blank=True)
+    esq_pulso_x = models.FloatField(null=True, blank=True)
+    esq_pulso_y = models.FloatField(null=True, blank=True)
+    dir_pulso_x = models.FloatField(null=True, blank=True)
+    dir_pulso_y = models.FloatField(null=True, blank=True)
+    esq_quadril_x = models.FloatField(null=True, blank=True)
+    esq_quadril_y = models.FloatField(null=True, blank=True)
+    dir_quadril_x = models.FloatField(null=True, blank=True)
+    dir_quadril_y = models.FloatField(null=True, blank=True)
+    esq_joelho_x = models.FloatField(null=True, blank=True)
+    esq_joelho_y = models.FloatField(null=True, blank=True)
+    dir_joelho_x = models.FloatField(null=True, blank=True)
+    dir_joelho_y = models.FloatField(null=True, blank=True)
+    esq_tornozelo_x = models.FloatField(null=True, blank=True)
+    esq_tornozelo_y = models.FloatField(null=True, blank=True)
+    dir_tornozelo_x = models.FloatField(null=True, blank=True)
+    dir_tornozelo_y = models.FloatField(null=True, blank=True)
+    esq_angulo_perna = models.FloatField(null=True, blank=True)
+    dir_angulo_perna = models.FloatField(null=True, blank=True)
+    perna_da_frente = models.CharField(max_length=50, null=True, blank=True)
+    pulso_da_frente = models.CharField(max_length=50, null=True, blank=True)
+    copo_acima = models.BooleanField(default=False)
+    stretch_pe_arma = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Jogador {self.id}"
